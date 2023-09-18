@@ -20,10 +20,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.listen()
         conn2, addr2 = s.accept()
         print(f"Connected by {addr2}")
-        with conn2:
-            while True:
-                data1 = conn1.recv(1_000_000)
-                print(bytesToStr(data1))
-                data2 = conn2.recv(1_000_000)
-                print(bytesToStr(data2))
-            
+        while True:
+            data1 = conn1.recv(1_000_000)
+            print(bytesToStr(data1))
+
